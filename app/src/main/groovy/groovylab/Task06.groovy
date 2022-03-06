@@ -7,6 +7,7 @@ package groovylab
 
 class Task06 {
     public static Map adults(Map people) {
-        throw UnsupportedOperationException('Not Implemented!')
+        people.removeAll{it -> it.value < 18}
+        return (people)
     }
 }

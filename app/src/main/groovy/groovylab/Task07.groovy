@@ -13,6 +13,11 @@ package groovylab
 
 class Task07 {
     public static String encryptThis(String s) {
-        throw UnsupportedOperationException('Not Implemented!')
+    if (s.length()==0) return "";
+    def res = []
+    for (String slovo : s.split(" ")) {
+        res << (int) slovo[0]  + slovo[-1] + slovo[2..-2]  + slovo[1]
+    }
+    return res.join(" ")
     }
 }
