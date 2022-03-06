@@ -13,11 +13,18 @@ package groovylab
 
 class Task07 {
     public static String encryptThis(String s) {
-    if (s.length()==0) return "";
-    def res = []
-    for (String slovo : s.split(" ")) {
-        res << (int) slovo[0]  + slovo[-1] + slovo[2..-2]  + slovo[1]
-    }
-    return res.join(" ")
+        if (s.length()==0) return "";
+        List word = s.split(" ")
+        def res = []
+        for ( def lit in word ){
+            if (lit.length() <= 2){
+                if (lit.length() <= 1) { res << (int) lit[0] }
+                else {res << (int) lit[0] + lit[1]}
+            }
+            else {     
+                res << (int) lit[0] + lit[-1] + lit[2..-2] + lit[1]
+            }
+        }
+        return res.join(" ")
     }
 }

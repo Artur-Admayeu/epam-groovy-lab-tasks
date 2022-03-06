@@ -8,6 +8,10 @@ package groovylab
 
 class Task02 {
     public static List mulEvenOdd(List l) {
-        (l.each{((it%2)==0)?(println(it*2)):println(it*3)})
+    def isOdd = { it%2 != 0 }
+    def res = l.collect{
+        return (isOdd(it)) ? it.multiply(3) : it.multiply(2)
+    }
+    return res
     }
 }
